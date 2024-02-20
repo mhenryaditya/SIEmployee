@@ -8,11 +8,5 @@
     possimus ratione soluta pariatur voluptatibus suscipit animi ipsam quod recusandae. Itaque quaerat ratione est harum
     cumque? Consectetur eligendi facilis reiciendis laudantium adipisci voluptate ratione, accusantium quasi tempore in
     cupiditate quibusdam voluptates inventore laboriosam eaque similique harum recusandae delectus ad, aliquid, nesciunt
-    molestiae vel. Reprehenderit dolores dignissimos, magnam, repellendus aperiam sunt pariatur odio vel, eum expedita
-    omnis. Praesentium nulla architecto neque, possimus suscipit fuga earum veritatis voluptas aliquid repellendus totam
-    quasi ipsam porro quod, expedita quia? Repellendus similique odio labore? Reiciendis recusandae debitis vitae,
-    doloribus ipsum deleniti qui! Minima dignissimos nisi voluptatum nihil deleniti tenetur vitae nulla, molestias
-    debitis eum soluta labore numquam, laudantium minus tempora, cum excepturi doloremque error animi! Maiores iste
-    aliquid enim, totam dicta atque ipsa aut reiciendis nihil magni nam iure ut nostrum porro voluptate illum quasi
-    cumque id quae ab sapiente. Omnis adipisci, vel non sunt commodi facilis?</p>
+    molestiae vel.?</p>
 <?= $this->endSection() ?>
