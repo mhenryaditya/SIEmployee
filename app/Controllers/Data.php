@@ -13,9 +13,17 @@ class Data extends BaseController
         ];
 
         $dataModel = new DataModel();
-        $data1 = $dataModel->getQuery();
+        $data1 = $dataModel->findAll();
 
         return view('data', ["data1" => $data1, "title" => "Pendataan"]);
+    }
+
+    public function tambahPegawai()
+    {
+        $data = [
+            "title" => 'Tambah Data Pegawai',
+            "data"
+        ];
     }
 
     public function detail()
@@ -25,7 +33,7 @@ class Data extends BaseController
         ];
 
         $dataModel = new DataModel();
-        $data1 = $dataModel->getQuery();
+        $data1 = $dataModel->findAll();
 
         return view('data', ["data1" => $data1, "title" => "Pendataan"]);
     }
