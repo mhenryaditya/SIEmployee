@@ -44,10 +44,10 @@
         <?php endforeach; ?>
     </tbody>
 </table>
-<!-- <script>
-    $('#btn').click(() => {
-        $.get('')
-    });
-    
-</script> -->
+<script>
+    // $('#btn').click(() => {
+    //     //$.get('')
+    // });
+
+</script>
 <?= $this->endSection('section') ?>
