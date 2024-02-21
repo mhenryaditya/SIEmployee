@@ -3,6 +3,7 @@
 <?= $this->section('section') ?>
 
 <h1>Tambah Pegawai</h1>
+<p>Form untuk menambakan data pegawai</p>
 
 <form action="/data/tambahPegawai/simpan" method="post">
     <?php csrf_field() ?>
