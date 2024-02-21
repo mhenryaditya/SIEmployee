@@ -2,7 +2,7 @@
 
 <?= $this->section('section') ?>
 
-<h1>Tambah Pegawai</h1>
+<h3>Tambah Pegawai</h3>
 <p>Form untuk menambakan data pegawai</p>
 
 <form action="/data/tambahPegawai/simpan" method="post">
