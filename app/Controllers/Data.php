@@ -37,7 +37,7 @@ class Data extends BaseController
             $this->validate([
                 'id_employee' => 'is_unique[employee.id_employee]|required|alpha_numeric_punct',
                 'name' => 'is_unique[employee.name]|alpha_numeric_punct',
-                'email' => 'valid-email',
+                'email' => 'valid_email',
                 'date_accept' => 'valid_date'
             ])
         ) {
