@@ -7,6 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', 'Home::index');
+
 $routes->get('/project', 'Project::index');
+
 $routes->get('/data', 'Data::index');
-$routes->get('/data/(:alpha)', 'Data::detail');
+$routes->get('/data/(:segment)', 'Data::$1');
+$routes->post('/data/(:segment)/simpan', 'Data::$1Simpan');
+$routes->get('/data/detail/(:segment)', 'Data::detail/$1');

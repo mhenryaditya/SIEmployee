@@ -3,7 +3,7 @@
 <?= $this->section('section') ?>
 <h3>Data Pegawai</h3>
 
-<a href="/tambahPegawai" class="btn btn-primary ">Tambah</a>
+<a href="/data/tambahPegawai" class="btn btn-primary ">Tambah</a>
 
 <table class="table">
     <thead>
@@ -38,7 +38,7 @@
                         <?= $dt["date_accept"] ?>
                     </td>
                     <td>
-                        <a href="/data/detailPegawai" class="btn btn-success " id="btn">Detail</a>
+                        <a href="/data/detail/<?= $dt["id_employee"] ?>" class="btn btn-success " id="btn">Detail</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
