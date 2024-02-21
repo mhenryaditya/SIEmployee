@@ -29,14 +29,35 @@ class Data extends BaseController
 
     public function tambahPegawaiSimpan()
     {
-        $dbSimpan = new DataModel;
-        $dbSimpan->save([
-            'id_employee' => ('emp' . url_title($this->request->getVar('name'), '-', true)),
-            'name' => $this->request->getVar('name'),
-            'email' => $this->request->getVar('email'),
-            'date_accept' => $this->request->getVar('date_accept')
-        ]);
-        return redirect()->to('/data');
+        $data = [
+            "title" => 'Tambah Data Pegawai',
+        ];
+
+        if (
+            $this->validate([
+                'id_employee' => 'is_unique[employee.id_employee]|required|alpha_numeric_punct',
+                'name' => 'is_unique[employee.name]|alpha_numeric_punct',
+                'email' => 'valid-email',
+                'date_accept' => 'valid_date'
+            ])
+        ) {
+            $dbSimpan = new DataModel;
+            $id = '';
+            if (!empty($this->request->getVar('name'))) {
+                $id = ('emp' . url_title($this->request->getVar('name'), '-', true));
+            }
+
+            $dbSimpan->save([
+                'id_employee' => $id,
+                'name' => $this->request->getVar('name'),
+                'email' => $this->request->getVar('email'),
+                'date_accept' => $this->request->getVar('date_accept')
+            ]);
+        } else {
+            $data2 = ["validation" => \Config\Services::validation()];
+            $data = array_merge($data, $data2);
+        }
+        return view('tambahPegawai', $data);
     }
 
     public function detail($id)
