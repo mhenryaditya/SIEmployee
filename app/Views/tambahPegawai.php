@@ -2,6 +2,8 @@
 
 <?= $this->section('section') ?>
 
+<h1>Tambah Pegawai</h1>
+
 <form action="/data/tambahPegawai/simpan" method="post">
 
     <?php csrf_field() ?>
