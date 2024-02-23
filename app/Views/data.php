@@ -1,9 +1,25 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('section') ?>
-<h3>Data Pegawai</h3>
 
-<a href="/data/tambahPegawai" class="btn btn-primary ">Tambah</a>
+<div class="d-flex mb-2">
+    <h3 class="flex-grow-1">Data Pegawai</h3>
+    <a href="/data/tambahPegawai" class="btn btn-primary">Tambah Data Pegawai</a>
+</div>
+
+<?php if (isset($tambah)): ?>
+
+    <?php if ($tambah !== null): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="notif">
+            <strong>
+                <?= $tambah ?>
+            </strong>
+            <?= $message ?>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
+<?php endif; ?>
 
 <table class="table">
     <thead>
