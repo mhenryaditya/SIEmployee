@@ -10,27 +10,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>jquery.js"></script>
+    <script src="<?= base_url() ?>sweetalert2.js"></script>
 </head>
 
 <body class="d-flex flex-column " style="height: 100vh;">
     <nav class="navbar navbar-dark bg-primary mb-3 pt-3 pb-3">
         <div class="container-fluid d-flex flex-row justify-content-start ms-5">
-            <a class="navbar-brand border-end pe-3 align-items-center " href="/">SIEmployee</a>
+            <a class="navbar-brand border-end pe-3 align-items-center " href="<?= base_url() ?>">SIEmployee</a>
             <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
                 <li class="nav-item">
                     <a class="nav-link <?php if ($title === 'Beranda') {
                         echo 'active';
-                    } ?>" aria-current="page" href="/">Beranda</a>
+                    } ?>" aria-current="page" href="<?= base_url() ?>">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($title === 'Project') {
                         echo 'active';
-                    } ?>" aria-current="page" href="/project">Project</a>
+                    } ?>" aria-current="page" href="<?= base_url() ?>project">Project</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($title === 'Pendataan') {
                         echo 'active';
-                    } ?>" href="/data">Pendataan</a>
+                    } ?>" href="<?= base_url() ?>data">Pendataan</a>
                 </li>
             </ul>
         </div>
@@ -49,21 +50,9 @@
                     </svg>
                 </a>
                 <span class="mb-3 mb-md-0 text-muted">&copy;
-                    <?= date('Y') ?> Company, Inc
+                    <?= date('Y') ?> Sistem Informasi Pegawai | SIEmployee
                 </span>
             </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#twitter" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#instagram" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#facebook" />
-                        </svg></a></li>
-            </ul>
         </footer>
     </div>
 </body>

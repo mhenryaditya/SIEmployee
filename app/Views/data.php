@@ -1,9 +1,39 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('section') ?>
-<h3>Data Pegawai</h3>
 
-<a href="/data/tambahPegawai" class="btn btn-primary ">Tambah</a>
+<div class="d-flex mb-2">
+    <div class="flex-grow-1 d-flex flex-column ">
+        <h3 class="">Data Pegawai</h3>
+        <p class="m-0 ">Daftar lengkap data-data pegawai</p>
+    </div>
+    <div class="d-flex align-items-center ">
+        <a href="/data/tambahPegawai" class="btn btn-primary align-items-center">Tambah Data</a>
+    </div>
+</div>
+
+<?php if (count($dataList) > 0): ?>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+<?php endif; ?>
+
+
+<?php if (isset($tambah)): ?>
+
+    <?php if ($tambah !== null): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="notif">
+            <strong>
+                <?= $tambah ?>
+            </strong>
+            <?= $message ?>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
+<?php endif; ?>
 
 <table class="table">
     <thead>
@@ -17,10 +47,9 @@
         </tr>
     </thead>
     <tbody>
-        <?php $no = 0; ?>
-        <?php if (count($data1) > 0): ?>
-            <?php foreach ($data1 as $dt): ?>
-                <?php $no++ ?>
+        <?php $no = (($pageNumber - 1) * $countofRow) + 1; ?>
+        <?php if (count($dataList) > 0): ?>
+            <?php foreach ($dataList as $dt): ?>
                 <tr>
                     <th scope="row">
                         <?= $no ?>
@@ -38,22 +67,21 @@
                         <?= $dt["date_accept"] ?>
                     </td>
                     <td>
-                        <a href="/data/detail/<?= $dt["id_employee"] ?>" class="btn btn-success " id="btn">Detail</a>
+                        <a href="<?= base_url() ?>data/detail/<?= $dt["id_employee"] ?>" class="btn btn-success "
+                            id="btn">Detail</a>
                     </td>
                 </tr>
+                <?php $no++ ?>
             <?php endforeach; ?>
         <?php endif; ?>
-        <?php if (count($data1) == 0): ?>
+        <?php if (count($dataList) == 0): ?>
             <tr>
                 <td colspan="6" class="text-center ">Tidak ada data pegawai yang ditampilkan.</td>
             </tr>
         <?php endif; ?>
     </tbody>
 </table>
-<script>
-    // $('#btn').click(() => {
-    //     //$.get('')
-    // });
-
-</script>
+<div class="d-flex justify-content-end ">
+    <?= $pager->links('employee', 'custom_pagination') ?>
+</div>
 <?= $this->endSection('section') ?>
