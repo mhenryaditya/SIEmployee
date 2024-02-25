@@ -17,7 +17,7 @@
     <?php endif; ?>
 
 <?php endif; ?>
-<form action="/data/tambahPegawai/simpan" method="post" enctype="multipart/form-data">
+<form action="<?= base_url() ?>data/tambahPegawai/simpan" method="post" enctype="multipart/form-data">
 
     <?php csrf_field() ?>
     <div class="mb-3">
@@ -64,7 +64,7 @@
 
 <script>
     $('#back').click(() => {
-        window.location.replace("http://localhost:8080/data");
+        window.location.replace("<?= base_url() ?>data");
     })
 </script>
 

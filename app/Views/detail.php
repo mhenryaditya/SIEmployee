@@ -2,12 +2,14 @@
 
 <?= $this->section('section') ?>
 
-<div class="d-flex align-items-center flex-column">
-    <h3>Detail Data Pegawai</h3>
+<h3 class="mb-1">Detail Data Pegawai</h3>
+<p>Halaman Keterangan Detail Terkait Data Pegawai</p>
+
+<div class="mt-2 border border-white ">
 
     <?php if (isset($tambah)): ?>
         <?php if ($tambah === 'Failed!'): ?>
-            <div class="alert alert-danger alert-dismissible fade show w-50" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>
                     <?= $tambah ?>
                 </strong>
@@ -22,7 +24,7 @@
 
     <?php endif; ?>
 
-    <form action="/data/hapusPegawai" method="post" class="w-50 d-flex gap-4 mt-3 " id="deleteForm">
+    <form action="<?= base_url() ?>data/hapusPegawai" method="post" class="d-flex gap-4 mt-3 " id="deleteForm">
         <?php csrf_field() ?>
         <div class="mb-3 d-flex flex-column">
             <img src="<?= base_url("/img/") . $data1['picture'] ?>" alt="<?= $data1['name'] ?>Foto" class="img-fluid">
@@ -65,14 +67,13 @@
                 <h5 class="modal-title" id="exampleModalLabel">Pengeditan Data Pegawai</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/data/update" method="post">
+            <form action="<?= base_url() ?>data/update" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <?php csrf_field() ?>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="name" name="name" value="<?= $data1['name'] ?>">
                     </div>
-                    <input type="hidden" name="old_name" value="<?= $data1['name'] ?>">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" value="<?= $data1['email'] ?>">
