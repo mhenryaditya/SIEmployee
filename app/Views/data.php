@@ -13,10 +13,14 @@
 </div>
 
 <?php if (count($dataList) > 0): ?>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    <div class="d-flex justify-content-end">
+        <form class="input-group mb-3 w-25" action="<?= base_url() ?>data/find" method="post">
+            <input type="text" class="form-control" placeholder="Cari data pegawai" name="search">
+            <button class="btn btn-outline-primary" style="#button-addon2:hover{color: white;}" type="submit"
+                id="button-addon2">
+                <img src="<?= base_url() ?>icons/search.svg" alt="searchIcon">
+            </button>
+        </form>
     </div>
 <?php endif; ?>
 

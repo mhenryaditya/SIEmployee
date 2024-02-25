@@ -177,4 +177,10 @@ class Data extends BaseController
             return view('detail', $data);
         }
     }
+
+    public function find()
+    {
+        $keyword = $this->request->getVar('search');
+        d($this->request->getVar());
+    }
 }
