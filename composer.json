@@ -12,7 +12,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
-        "fakerphp/faker": "^1.23"
+        "fakerphp/faker": "^1.23",
+        "firebase/php-jwt": "^6.10"
     },
     "require-dev": {
         "mikey179/vfsstream": "^1.6",
