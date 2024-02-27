@@ -6,16 +6,15 @@ use App\Models\DataModel;
 
 class Data extends BaseController
 {
+    protected $countofRow = 5;
     public function index()
     {
         $dataModel = new DataModel();
 
-        $countofRow = 6;
-
         $data = [
             'title' => "Pendataan",
-            'countofRow' => $countofRow,
-            'dataList' => $dataModel->paginate($countofRow, 'employee'),
+            'countofRow' => $this->countofRow,
+            'dataList' => $dataModel->paginate($this->countofRow, 'employee'),
             'pager' => $dataModel->pager,
             'validation' => null,
             'pageNumber' => (($this->request->getVar('page_employee')) ? $this->request->getVar('page_employee') : 1)
@@ -35,12 +34,11 @@ class Data extends BaseController
     public function tambahPegawaiSimpan()
     {
         $dataModel = new DataModel;
-        $countofRow = 6;
 
         $data = [
             'title' => "Pendataan",
-            'countofRow' => $countofRow,
-            'dataList' => $dataModel->paginate($countofRow, 'employee'),
+            'countofRow' => $this->countofRow,
+            'dataList' => $dataModel->paginate($this->countofRow, 'employee'),
             'pager' => $dataModel->pager,
             'validation' => null,
             'pageNumber' => (($this->request->getVar('page_employee')) ? $this->request->getVar('page_employee') : 1)
@@ -104,11 +102,10 @@ class Data extends BaseController
         $id = $this->request->getVar('id_employee');
         $dataModel = new DataModel;
 
-        $countofRow = 6;
         $data = [
             'title' => "Pendataan",
-            'countofRow' => $countofRow,
-            'dataList' => $dataModel->paginate($countofRow, 'employee'),
+            'countofRow' => $this->countofRow,
+            'dataList' => $dataModel->paginate($this->countofRow, 'employee'),
             'pager' => $dataModel->pager,
             'validation' => null,
             'pageNumber' => (($this->request->getVar('page_employee')) ? $this->request->getVar('page_employee') : 1)
@@ -130,12 +127,10 @@ class Data extends BaseController
 
         $dataModel = new DataModel;
 
-        $countofRow = 6;
-
         $data = [
             'title' => "Pendataan",
-            'countofRow' => $countofRow,
-            'dataList' => $dataModel->paginate($countofRow, 'employee'),
+            'countofRow' => $this->countofRow,
+            'dataList' => $dataModel->paginate($this->countofRow, 'employee'),
             'pager' => $dataModel->pager,
             'validation' => null,
             'pageNumber' => (($this->request->getVar('page_employee')) ? $this->request->getVar('page_employee') : 1)
@@ -176,5 +171,25 @@ class Data extends BaseController
             $data = ["title" => "Detail Data Pegawai $id", "error" => \Config\Services::validation()->getErrors(), "tambah" => 'Failed!', "message" => "Gagal mengedit data.", "data1" => $dataModel->find($id)];
             return view('detail', $data);
         }
+    }
+
+    public function find()
+    {
+        $search = $this->request->getVar('search');
+        // dd($this->request->getVar('search'));
+
+        $dataModel = new DataModel;
+
+        $data = [
+            'title' => "Pendataan",
+            'countofRow' => $this->countofRow,
+            'dataList' => $dataModel->like('id_employee', $search)->orLike('name', $search)->orLike('email', $search)->orLike('date_accept', $search)->paginate($this->countofRow, 'employee'),
+            'pager' => $dataModel->pager,
+            'validation' => null,
+            'pageNumber' => (($this->request->getVar('page_employee')) ? $this->request->getVar('page_employee') : 1),
+            'search' => $search
+        ];
+
+        return view('data', $data);
     }
 }
